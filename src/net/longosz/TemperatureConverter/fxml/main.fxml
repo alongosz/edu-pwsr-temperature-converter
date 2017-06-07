@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
@@ -11,15 +12,21 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" BorderPane.alignment="CENTER">
       <children>
             <Label layoutX="114.0" layoutY="45.0" text="Input" />
-            <RadioButton fx:id="fromCelsius" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" text="Celsius" />
-            <RadioButton fx:id="fromFahrenheit" layoutX="29.0" layoutY="128.0" mnemonicParsing="false" text="Fahrenheit" />
-            <RadioButton fx:id="fromKelvin" layoutX="30.0" layoutY="157.0" mnemonicParsing="false" text="Kelvin" />
-            <TextField fx:id="inputField" layoutX="156.0" layoutY="40.0" prefHeight="26.0" prefWidth="95.0" />
+            <RadioButton fx:id="fromCelsius" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" text="Celsius">
+               <toggleGroup>
+                  <ToggleGroup fx:id="inputScale" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="fromFahrenheit" layoutX="29.0" layoutY="128.0" mnemonicParsing="false" text="Fahrenheit" toggleGroup="$inputScale" />
+            <RadioButton fx:id="fromKelvin" layoutX="30.0" layoutY="157.0" mnemonicParsing="false" text="Kelvin" toggleGroup="$inputScale" />
+            <TextField fx:id="inputField" layoutX="156.0" layoutY="40.0" onAction="#inputChanged" prefHeight="26.0" prefWidth="95.0" />
             <Label layoutX="112.0" layoutY="238.0" text="Output" />
             <TextField fx:id="outputField" disable="true" editable="false" layoutX="162.0" layoutY="232.0" prefHeight="26.0" prefWidth="95.0" />
-            <RadioButton fx:id="toCelsius" layoutX="271.0" layoutY="97.0" mnemonicParsing="false" text="Celsius" />
-            <RadioButton fx:id="toFahrenheit" layoutX="271.0" layoutY="126.0" mnemonicParsing="false" text="Fahrenheit" />
-            <RadioButton fx:id="toKelvin" layoutX="272.0" layoutY="155.0" mnemonicParsing="false" text="Kelvin" />
+            <RadioButton fx:id="toCelsius" layoutX="271.0" layoutY="97.0" mnemonicParsing="false" text="Celsius">
+               <toggleGroup>
+                  <ToggleGroup fx:id="outputScale" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="toFahrenheit" layoutX="271.0" layoutY="126.0" mnemonicParsing="false" text="Fahrenheit" toggleGroup="$outputScale" />
+            <RadioButton fx:id="toKelvin" layoutX="272.0" layoutY="155.0" mnemonicParsing="false" text="Kelvin" toggleGroup="$outputScale" />
             <Label layoutX="27.0" layoutY="72.0" text="Input scale" />
             <Label layoutX="269.0" layoutY="71.0" text="Output scale" />
       </children>
